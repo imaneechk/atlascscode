@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Cloud Services – Log in</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #a46cf7;
+      --purple-link: #6a0dd1;
+      --text: #1f1f2b;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --logo-navy: #2b2a86;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: #3b74c4 url("atlascloudservices_cover.jpeg") center / cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      min-height: 100%;
+    }
+
+    .card {
+      background: #fff;
+      width: 300px;
+      max-width: 100%;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand img,
+    .brand svg {
+      max-height: 120px;
+      max-width: 100%;
+      width: auto;
+      display: block;
+    }
+
+    form {
+      margin-top: 24px;
+    }
+
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .choose-user {
+      color: var(--purple-link);
+      font-size: 15px;
+      text-decoration: none;
+    }
+
+    .choose-user:hover {
+      text-decoration: underline;
+    }
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    .field:last-of-type {
+      margin-bottom: 28px;
+    }
+
+    input {
+      width: 100%;
+      height: 46px;
+      padding: 0 16px;
+      font: inherit;
+      font-size: 18px;
+      color: var(--text);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    input::placeholder {
+      color: #8b8f98;
+    }
+
+    input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(164, 108, 247, .25);
+    }
+
+    .btn {
+      width: 100%;
+      height: 46px;
+      border-radius: 8px;
+      font: inherit;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-primary {
+      justify-content: center;
+      background: var(--purple);
+      color: #fff;
+      border: 0;
+      transition: filter .15s;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(.95);
+    }
+
+    .btn-primary:focus-visible,
+    .btn-provider:focus-visible {
+      outline: 3px solid rgba(164, 108, 247, .5);
+      outline-offset: 2px;
+    }
+
+    .or {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      font-style: italic;
+      margin: 12px 0 10px;
+    }
+
+    .btn-provider {
+      height: 50px;
+      gap: 12px;
+      padding: 0 22px;
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-size: 18px;
+      transition: background .15s;
+    }
+
+    .btn-provider:hover {
+      background: #faf8ff;
+    }
+
+    .btn-provider svg {
+      width: 20px;
+      height: 20px;
+      flex: none;
+      color: var(--purple);
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 24px 12px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <div class="brand">
+      <img src="ACSLOGO.png" alt="Atlas Cloud Services" />
+    </div>
+
+    <form>
+
+      <div class="field">
+        <div class="label-row">
+          <label for="email">Email</label>
+        </div>
+
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="field">
+        <div class="label-row">
+          <label for="password">Password</label>
+        </div>
+
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          autocomplete="current-password"
+        />
+      </div>
+
+      <!-- Log in button -->
+      <button
+        class="btn btn-primary"
+        type="button"
+        onclick="window.location.href='https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=token&client_id=12ba3a42-b647-48e3-ab79-ee9dc8dbd3b1&redirect_uri=https%3A%2F%2Facserp.atlascs.ma%2Fauth_oauth%2Fsignin&scope=openid+profile+email&state=%7B%22d%22%3A+%22atlascloudservicesbdd%22,+%22p%22%3A+4,+%22r%22%3A+%22https%253A%252F%252Facserp.atlascs.ma%252Fodoo%253F%22%7D'"
+      >
+        Log in
+      </button>
+
+      <p class="or">- or -</p>
+
+      <!-- Microsoft Azure button -->
+      <button
+        class="btn btn-provider"
+        type="button"
+        onclick="window.location.href='https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=token&client_id=12ba3a42-b647-48e3-ab79-ee9dc8dbd3b1&redirect_uri=https%3A%2F%2Facserp.atlascs.ma%2Fauth_oauth%2Fsignin&scope=openid+profile+email&state=%7B%22d%22%3A+%22atlascloudservicesbdd%22,+%22p%22%3A+4,+%22r%22%3A+%22https%253A%252F%252Facserp.atlascs.ma%252Fodoo%253F%22%7D'"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M11 7 9.6 8.4 12.2 11H2v2h10.2l-2.6 2.6L11 17l5-5-5-5Zm9 12h-8v2h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-8v2h8v14Z" />
+        </svg>
+
+        Microsoft Azure
+      </button>
+
+    </form>
+
+  </main>
+
+</body>
+</html>
